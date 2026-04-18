@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "extraKnownMarketplaces": {
+    "cjhowe-us-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "cjhowe-us/marketplace"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "artifact@cjhowe-us-marketplace": true,
+    "workflow@cjhowe-us-marketplace": true,
+    "artifact-github@cjhowe-us-marketplace": true,
+    "artifact-documents@cjhowe-us-marketplace": true,
+    "env-setup@cjhowe-us-marketplace": true,
+    "rumdl@cjhowe-us-marketplace": true
+  }
+}
