@@ -66,7 +66,7 @@ also reads `.rumdl.toml` from the file's parent tree.
 
 ## How the hook works
 
-After any `Write` or `Edit` tool call, Claude Code runs `hooks/fmt-markdown.sh`:
+After any `Write` or `Edit` tool call, Claude Code runs `hooks/rumdl-fmt.sh`:
 
 1. Reads the `tool_input.file_path` from stdin JSON
 2. Skips anything that is not `*.md`
