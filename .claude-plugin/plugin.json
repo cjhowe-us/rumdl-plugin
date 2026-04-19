@@ -1,4 +1,7 @@
 {
+  "name": "rumdl-plugin",
+  "version": "1.0.7",
+  "repository": "https://github.com/cjhowe-us/rumdl-plugin",
   "author": {
     "name": "Christian Howe",
     "url": "https://github.com/cjhowe-us"
@@ -26,8 +29,5 @@
         ".md": "markdown"
       }
     }
-  },
-  "name": "rumdl",
-  "repository": "https://github.com/cjhowe-us/rumdl-plugin",
-  "version": "1.0.7"
+  }
 }

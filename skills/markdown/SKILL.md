@@ -33,7 +33,7 @@ GFM (GitHub Flavored Markdown) flavor.
 
 ## Formatting Rules
 
-- 100-character line limit (tables exempt)
+- 120-character line limit (tables exempt)
 - GFM flavor (GitHub Flavored Markdown)
 - Mermaid diagrams only — no ASCII art
 - Paragraphs under 5 sentences and 50 words
