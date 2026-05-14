@@ -1,0 +1,14 @@
+{
+  "name": "rumdl-plugin",
+  "owner": {
+    "name": "Christian Howe",
+    "url": "https://github.com/cjhowe-us"
+  },
+  "plugins": [
+    {
+      "name": "rumdl-plugin",
+      "source": "./",
+      "description": "Markdown linting and formatting via rumdl."
+    }
+  ]
+}

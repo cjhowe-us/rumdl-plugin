@@ -33,10 +33,15 @@ The hook silently no-ops if `rumdl` is not on `PATH`, so missing binary never br
 
 ## Install
 
-```bash
-claude plugin marketplace add cjhowe-us/workflow
-claude plugin install rumdl@cjhowe-us-workflow
+In Claude Code:
+
+```text
+/plugin marketplace add cjhowe-us/rumdl-plugin
+/plugin install rumdl-plugin@rumdl-plugin
 ```
+
+The first command registers this repo as a single-plugin marketplace; the
+second installs the plugin from it.
 
 ## Configuration
 
