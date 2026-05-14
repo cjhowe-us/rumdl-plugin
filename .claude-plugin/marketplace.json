@@ -2,13 +2,13 @@
   "name": "rumdl-plugin",
   "owner": {
     "name": "Christian Howe",
-    "url": "https://github.com/cjhowe-us"
+    "url": "https://github.com/cjhowe-us/rumdl-plugin"
   },
   "plugins": [
     {
       "name": "rumdl-plugin",
-      "source": "./",
-      "description": "Markdown linting and formatting via rumdl."
+      "description": "Use rumdl to format/lint Markdown",
+      "source": "./"
     }
   ]
 }

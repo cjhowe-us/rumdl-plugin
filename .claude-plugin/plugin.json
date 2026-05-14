@@ -1,6 +1,7 @@
 {
   "name": "rumdl-plugin",
   "version": "1.0.8",
+  "license": "Apache-2.0",
   "repository": "https://github.com/cjhowe-us/rumdl-plugin",
   "author": {
     "name": "Christian Howe",
@@ -13,16 +14,14 @@
     "linter",
     "lsp",
     "markdown",
-    "rumdl"
+    "rumdl",
+    "rust"
   ],
-  "license": "Apache-2.0",
   "lspServers": {
     "rumdl": {
       "args": [
         "server",
-        "--stdio",
-        "--config",
-        ".rumdl.toml"
+        "--stdio"
       ],
       "command": "rumdl",
       "extensionToLanguage": {
