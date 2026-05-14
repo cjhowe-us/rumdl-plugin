@@ -58,5 +58,3 @@ if [ -n "$LEFTOVER" ]; then
     }
   }'
 fi
-
-exit 0
