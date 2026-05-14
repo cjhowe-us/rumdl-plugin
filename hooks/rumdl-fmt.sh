@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 # PostToolUse: rumdl fmt + rumdl check for .md after Write / Edit / MultiEdit.
-# `rumdl fmt` rewrites fixable issues and exits 0 even when diagnostics remain,
-# so we follow up with `rumdl check` to surface any leftover warnings. Hook
-# exits 2 when warnings remain — Claude Code forwards stderr to the assistant
-# so it can fix them in a follow-up edit.
+#
+# `rumdl fmt` rewrites fixable issues and exits 0 even when diagnostics remain
+# (its exit code only signals formatter failure), so we follow up with `rumdl
+# check` to detect leftover warnings. When warnings remain we emit a Claude
+# Code PostToolUse JSON response with `hookSpecificOutput.additionalContext`
+# so the assistant sees the diagnostics and fixes them in a follow-up edit —
+# without hard-blocking the original tool call.
 INPUT=$(cat)
 
 command -v rumdl >/dev/null 2>&1 || exit 0
+command -v jq    >/dev/null 2>&1 || exit 0
 
 LEFTOVER=""
 
@@ -26,7 +30,7 @@ process_md() {
   CHECK_OUT=$(rumdl check "$FILE" 2>&1)
   CHECK_RC=$?
   if [ "$CHECK_RC" -ne 0 ]; then
-    LEFTOVER+="rumdl reports unfixed diagnostics in $FILE — please fix:"$'\n'"$CHECK_OUT"$'\n\n'
+    LEFTOVER+="Unfixed rumdl diagnostics in $FILE:"$'\n'"$CHECK_OUT"$'\n\n'
   fi
 }
 
@@ -46,8 +50,13 @@ done < <(
 )
 
 if [ -n "$LEFTOVER" ]; then
-  printf '%s' "$LEFTOVER" >&2
-  exit 2
+  MSG="rumdl auto-formatted the file(s) but left warnings the formatter cannot fix automatically. Please address them in a follow-up edit:"$'\n\n'"$LEFTOVER"
+  jq -n --arg ctx "$MSG" '{
+    hookSpecificOutput: {
+      hookEventName: "PostToolUse",
+      additionalContext: $ctx
+    }
+  }'
 fi
 
 exit 0
