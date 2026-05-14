@@ -6,7 +6,6 @@ Provides:
 
 - **LSP server** — live diagnostics in supported editors via `rumdl server --stdio`
 - **PostToolUse hook** — runs `rumdl fmt` on every `.md` file after `Write` or `Edit`
-- **`markdown` skill** — Markdown coding standard (naming, formatting, linting rules)
 
 ## Prerequisites
 
@@ -81,12 +80,6 @@ After any `Write` or `Edit` tool call, Claude Code runs `hooks/rumdl-fmt.sh`:
 
 This means every Markdown file Claude writes is normalized to the project's rumdl style as soon as
 the write completes.
-
-## Skill
-
-The `markdown` skill documents the coding standard the formatter enforces: line length, GFM flavor,
-heading case, naming conventions, ID references, Mermaid-only diagrams, anti-patterns. Claude loads
-it automatically whenever it reads, writes, or reviews `.md` files.
 
 ## License
 
